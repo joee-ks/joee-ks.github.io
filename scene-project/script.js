@@ -2,7 +2,7 @@ const canvas = document.getElementById("sceneCanvas");
 const ctx = canvas.getContext("2d");
 
 const bgImg = new Image();
-bgImg.src = "images/background.png";
+bgImg.src = "images/background.jpeg";
 bgImg.onload = function () {
   ctx.drawImage(bgImg, 0, 0, canvas.width, canvas.height);
 };
