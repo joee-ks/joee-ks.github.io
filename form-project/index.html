@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Savings Growth Calculator</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-image: url('images/background.jpeg');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .form-container {
+      max-width: 500px;
+      margin: 100px auto;
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 12px rgba(0,0,0,0.3);
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .radio-group {
+      margin-top: 15px;
+    }
+
+    .radio-group label {
+      display: inline-block;
+      margin-right: 15px;
+    }
+
+    button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 12px;
+      background-color: #008060;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    #result {
+      margin-top: 20px;
+      font-size: 18px;
+      text-align: center;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="form-container">
+    <h1>Savings Growth Calculator</h1>
+
+    <label for="amount">Initial Amount ($):</label>
+    <input type="text" id="amount">
+
+    <label for="rate">Interest Rate (% per year):</label>
+    <input type="text" id="rate">
+
+    <label for="years">Years:</label>
+    <input type="text" id="years">
+
+    <div class="radio-group">
+      <label><input type="radio" name="interestType" value="simple" checked> Simple Interest</label>
+      <label><input type="radio" name="interestType" value="compound"> Compound Interest</label>
+    </div>
+
+    <button onclick="calculate()">Calculate</button>
+
+    <div id="result"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
