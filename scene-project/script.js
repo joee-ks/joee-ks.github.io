@@ -14,10 +14,10 @@ bg.onload = () => {
     ctx.drawImage(bg, 0, 0, canvas.width, canvas.height);
   
     hunter.onload = () => {
-      ctx.drawImage(hunter, 220, 480, 150, 330); // adjust size/position
+      ctx.drawImage(hunter, 510, 470, 180, 330); // adjust size/position
   
       crow.onload = () => {
-        ctx.drawImage(crow, 780, 140, 180, 180); // adjust size/position
+        ctx.drawImage(crow, 180, 120, 250, 250); // adjust size/position
   
         // Add text last
         ctx.shadowColor = "black";
