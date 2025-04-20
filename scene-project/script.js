@@ -13,7 +13,7 @@ crow.src = "images/crow.png";
 bg.onload = () => {
     ctx.drawImage(bg, 0, 0, canvas.width, canvas.height);
   
-    character.onload = () => {
+    hunter.onload = () => {
       ctx.drawImage(hunter, 220, 480, 150, 330); // adjust size/position
   
       crow.onload = () => {
