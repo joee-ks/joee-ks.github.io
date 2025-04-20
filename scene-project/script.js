@@ -10,19 +10,19 @@ character.src = "images/character.png";
 const torrent = new Image();
 torrent.src = "images/torrent.png";
 
-bg.onload = function () {
-  ctx.drawImage(bg, 0, 0, canvas.width, canvas.height);
-
-  character.onload = function () {
-    ctx.drawImage(character, 100, 300, 150, 300); // adjust position/size
-
-    torrent.onload = function () {
-      ctx.drawImage(torrent, 550, 350, 200, 200); // adjust position/size
-
-      // text
-      ctx.fillStyle = "white";
-      ctx.font = "30px serif";
-      ctx.fillText("Joe Shyti - Lands Between", 20, 50);
+bg.onload = () => {
+    ctx.drawImage(bg, 0, 0, canvas.width, canvas.height);
+  
+    character.onload = () => {
+      ctx.drawImage(character, 100, 300, 150, 300); // adjust size/position
+  
+      torrent.onload = () => {
+        ctx.drawImage(torrent, 500, 350, 200, 200); // adjust size/position
+  
+        // Add text last
+        ctx.fillStyle = "white";
+        ctx.font = "30px serif";
+        ctx.fillText("Joe Shyti - Lands Between", 20, 50);
+      };
     };
   };
-};
