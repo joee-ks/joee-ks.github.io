@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Spooky Night Scene</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Spooky Night Interactive Scene</h1>
+
+  <!-- Control Panel -->
+  <section id="controls">
+    <!-- Background Selection -->
+    <fieldset>
+      <legend>Select Background</legend>
+      <label><input type="radio" name="background" value="haunted" checked> Haunted House</label><br>
+      <label><input type="radio" name="background" value="graveyard"> Graveyard</label><br>
+      <label><input type="radio" name="background" value="forest"> Dark Forest</label>
+    </fieldset>
+
+    <!-- Character Position Slider -->
+    <label>
+      Move Character:
+      <input type="range" id="character-slider" min="50" max="750" value="400">
+    </label>
+
+    <!-- Toggle Items -->
+    <fieldset>
+      <legend>Toggle Items</legend>
+      <label><input type="checkbox" id="pumpkin-toggle" checked> Pumpkin</label><br>
+      <label><input type="checkbox" id="cat-toggle" checked> Black Cat</label><br>
+      <label><input type="checkbox" id="tree-toggle" checked> Spooky Tree</label>
+    </fieldset>
+
+    <!-- Sound Effects -->
+    <fieldset>
+      <legend>Sound Effects</legend>
+      <button id="sound1">Creaking Door</button>
+      <button id="sound2">Owl Hoot</button>
+      <button id="sound3">Thunder Clap</button>
+    </fieldset>
+  </section>
+
+  <!-- Canvas Area -->
+  <canvas id="scene" width="800" height="500"></canvas>
+
+  <script src="script.js"></script>
+</body>
+</html>
