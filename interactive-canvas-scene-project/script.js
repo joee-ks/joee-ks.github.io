@@ -54,17 +54,17 @@ function draw() {
   ctx.drawImage(images.backgrounds[selectedBg], 0, 0, canvas.width, canvas.height);
 
   // Draw character
-  ctx.drawImage(images.character, characterX, 300, 60, 80);
+  ctx.drawImage(images.character, characterX, 300, 80, 100);
 
   // Draw items if toggled
   if (pumpkinToggle.checked) {
-    ctx.drawImage(images.pumpkin, 100, 400, 50, 50);
+    ctx.drawImage(images.pumpkin, 100, 300, 100, 100);
   }
   if (witchToggle.checked) {
-    ctx.drawImage(images.witch, 300, 420, 50, 50);
+    ctx.drawImage(images.witch, 300, 200, 100, 100);
   }
   if (treeToggle.checked) {
-    ctx.drawImage(images.tree, 600, 280, 100, 150);
+    ctx.drawImage(images.tree, 600, 280, 120, 150);
   }
 }
 
