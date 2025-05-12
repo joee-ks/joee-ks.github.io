@@ -64,7 +64,7 @@ function draw() {
     ctx.drawImage(images.witch, 250, 50, 100, 100);
   }
   if (treeToggle.checked) {
-    ctx.drawImage(images.tree, 700, 280, 150, 200);
+    ctx.drawImage(images.tree, 650, 280, 150, 200);
   }
 }
 
