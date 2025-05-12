@@ -33,7 +33,7 @@ options: {
       text: "Top 5 Artists in NYC (2024)",
       color: "#ffffff",
       font: {
-        size: 20,
+        size: 22,
         weight: 'bold',
         family: 'Segoe UI'
       }
@@ -72,7 +72,7 @@ options: {
       text: "Top 10 Artists in NYC (2024)",
       color: "#ffffff",
       font: {
-        size: 20,
+        size: 22,
         weight: 'bold',
         family: 'Segoe UI'
       }
@@ -81,7 +81,7 @@ options: {
       labels: {
         color: "#f1f1f1",
         font: {
-          size: 14,
+          size: 16,
           family: 'Segoe UI'
         }
       }
@@ -92,7 +92,7 @@ options: {
       ticks: {
         color: "#e0e0e0",
         font: {
-          size: 12,
+          size: 14,
           family: 'Segoe UI'
         }
       }
@@ -101,7 +101,7 @@ options: {
       ticks: {
         color: "#e0e0e0",
         font: {
-          size: 14,
+          size: 16,
           family: 'Segoe UI'
         }
       }
