@@ -61,10 +61,10 @@ function draw() {
     ctx.drawImage(images.pumpkin, 100, 300, 100, 100);
   }
   if (witchToggle.checked) {
-    ctx.drawImage(images.witch, 300, 200, 100, 100);
+    ctx.drawImage(images.witch, 250, 50, 100, 100);
   }
   if (treeToggle.checked) {
-    ctx.drawImage(images.tree, 600, 280, 120, 150);
+    ctx.drawImage(images.tree, 700, 280, 150, 200);
   }
 }
 
