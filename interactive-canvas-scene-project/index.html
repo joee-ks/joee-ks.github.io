@@ -19,14 +19,20 @@
     </fieldset>
 
     <!-- Character Position Slider -->
-    <div class="slider-control">
-    <label for="character-slider">Move Character:</label>
-    <input type="range" id="character-slider" min="50" max="750" value="400">
-    </div>
+    <fieldset class="slider-control">
+      <legend>Move Ghost</legend>
+
+      <label for="character-slider-x">Left / Right:</label>
+      <input type="range" id="character-slider-x" min="50" max="700" value="400">
+
+      <label for="character-slider-y">Up / Down:</label>
+      <input type="range" id="character-slider-y" min="100" max="400" value="300">
+    </fieldset>
+
 
     <!-- Toggle Items -->
     <fieldset>
-      <legend>Toggle Items</legend>
+      <legend>Toggle Sprites</legend>
       <label><input type="checkbox" id="pumpkin-toggle" checked> Pumpkin</label><br>
       <label><input type="checkbox" id="witch-toggle" checked> Witch</label><br>
       <label><input type="checkbox" id="tree-toggle" checked> Spooky Tree</label>

@@ -3,7 +3,8 @@ const canvas = document.getElementById("scene");
 const ctx = canvas.getContext("2d");
 
 const bgRadios = document.getElementsByName("background");
-const slider = document.getElementById("character-slider");
+const sliderX = document.getElementById("character-slider-x");
+const sliderY = document.getElementById("character-slider-y");
 const pumpkinToggle = document.getElementById("pumpkin-toggle");
 const witchToggle = document.getElementById("witch-toggle");
 const treeToggle = document.getElementById("tree-toggle");
@@ -42,7 +43,8 @@ const sounds = {
 };
 
 // Character position
-let characterX = parseInt(slider.value);
+let characterX = parseInt(sliderX.value);
+let characterY = parseInt(sliderY.value);
 
 // Draw the scene
 function draw() {
@@ -54,7 +56,7 @@ function draw() {
   ctx.drawImage(images.backgrounds[selectedBg], 0, 0, canvas.width, canvas.height);
 
   // Draw character
-  ctx.drawImage(images.character, characterX, 300, 80, 100);
+  ctx.drawImage(images.character, characterX, characterY, 80, 100);
 
   // Draw items if toggled
   if (pumpkinToggle.checked) {
@@ -69,8 +71,13 @@ function draw() {
 }
 
 // Event listeners
-slider.addEventListener("input", () => {
-  characterX = parseInt(slider.value);
+sliderX.addEventListener("input", () => {
+  characterX = parseInt(sliderX.value);
+  draw();
+});
+
+sliderY.addEventListener("input", () => {
+  characterY = parseInt(sliderY.value);
   draw();
 });
 
