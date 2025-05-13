@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sustain-a-Buddy</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <label class="dark-toggle">
+    <button id="darkModeBtn">🌙 Toggle Dark Mode</button>
+  </label>
+
+  <header>
+    <h1>Sustain-a-Buddy</h1>
+    <p>Your daily companion for sustainable living 🌎</p>
+  </header>
+
+  <canvas id="canvas" width="800" height="400"></canvas>
+
+  <div class="menu">
+    <h2>Today's Eco Tasks</h2>
+    <ul>
+      <li><label><input type="checkbox" class="task" data-task="reduce" /> Reduce plastic</label></li>
+      <li><label><input type="checkbox" class="task" data-task="reuse" /> Reuse containers</label></li>
+      <li><label><input type="checkbox" class="task" data-task="recycle" /> Recycle paper</label></li>
+      <li><label><input type="checkbox" class="task" data-task="compost" /> Compost food</label></li>
+      <li><label><input type="checkbox" class="task" data-task="bike" /> Bike instead of drive</label></li>
+    </ul>
+    <button id="reminderBtn">🔔 Remind Me</button>
+    <button id="resetBtn">🔄 Reset Progress</button>
+    <p id="streakInfo"></p>
+  </div>
+
+  <section class="stats-panel">
+    <h3>Your Eco Stats</h3>
+    <ul>
+      <li id="daysUsed">Days used: 0</li>
+      <li id="totalTasks">Total tasks completed: 0</li>
+      <li id="longestStreak">Longest streak: 0</li>
+    </ul>
+  </section>
+
+  <section class="tips">
+    <h2>Eco Tip of the Day</h2>
+    <p id="dailyTip">Loading tip...</p>
+  </section>
+
+  <section class="bonus-fact">
+    <h3>Did You Know?</h3>
+    <p id="bonusFact">Loading fact...</p>
+  </section>
+
+  <footer>
+    <p>Made with 💚 by Joe Shyti &middot; <a href="#">Learn More</a></p>
+  </footer>
+</body>
+</html>
