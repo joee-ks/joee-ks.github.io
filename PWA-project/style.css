@@ -26,6 +26,9 @@ canvas {
   margin: 1rem auto;
   border: 2px solid #cdecc9;
   border-radius: 10px;
+  width: 100%;
+  max-width: 800px;
+  height: auto;
 }
 
 .menu {
@@ -93,13 +96,6 @@ footer {
   font-size: 1.05rem;
 }
 
-.dark-toggle {
-  position: fixed;
-  top: 1rem;
-  right: 1rem;
-  z-index: 999;
-}
-
 /* Dark mode section styles */
 body.dark-mode .menu,
 body.dark-mode section {
@@ -126,7 +122,7 @@ body.dark-mode canvas {
 }
 
 #darkModeBtn {
-  position: fixed;
+  position: absolute;
   top: 1rem;
   right: 1rem;
   z-index: 1000;
@@ -136,6 +132,14 @@ body.dark-mode canvas {
   padding: 0.5rem 1rem;
   border-radius: 6px;
   font-size: 1rem;
+}
+
+@media (max-width: 600px) {
+  #darkModeBtn {
+    top: auto;
+    bottom: 1rem;
+    right: 1rem;
+  }
 }
 
 body.dark-mode #darkModeBtn {

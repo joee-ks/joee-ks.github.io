@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const canvas = document.getElementById("buddyCanvas");
+  const canvas = document.getElementById("canvas");
   const ctx = canvas.getContext("2d");
 
   const background = new Image();
@@ -45,6 +45,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const STATS_KEY = "ecoStats";
   const CHECKBOXES = document.querySelectorAll(".task");
   const streakDisplay = document.getElementById("streakInfo");
+  const daysUsedEl = document.getElementById("daysUsed");
+  const totalTasksEl = document.getElementById("totalTasks");
+  const longestStreakEl = document.getElementById("longestStreak");
 
   const getToday = () => new Date().toISOString().split("T")[0];
 
@@ -77,9 +80,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     localStorage.setItem(STATS_KEY, JSON.stringify(stats));
 
-    document.getElementById("daysUsed").textContent = `Days used: ${stats.daysUsed}`;
-    document.getElementById("totalTasks").textContent = `Total tasks completed: ${stored.tasksCompleted?.length || 0}`;
-    document.getElementById("longestStreak").textContent = `Longest streak: ${stats.longestStreak}`;
+    daysUsedEl.textContent = `Days used: ${stats.daysUsed}`;
+    totalTasksEl.textContent = `Total tasks completed: ${stored.tasksCompleted?.length || 0}`;
+    longestStreakEl.textContent = `Longest streak: ${stats.longestStreak}`;
     streakDisplay.textContent = `🌿 Current streak: ${stored.streak || 0} day(s)`;
   }
 
@@ -104,7 +107,6 @@ document.addEventListener("DOMContentLoaded", () => {
       const yesterday = new Date();
       yesterday.setDate(yesterday.getDate() - 1);
       const yString = yesterday.toISOString().split("T")[0];
-
       streak = lastDate === yString ? streak + 1 : 1;
     }
 
@@ -120,14 +122,15 @@ document.addEventListener("DOMContentLoaded", () => {
       stats.longestStreak = streak;
     }
 
-    stats.totalTasks += completedTasks.length;
+    const newTasks = completedTasks.filter(t => !(stored.tasksCompleted || []).includes(t));
+    stats.totalTasks += newTasks.length;
     stats.lastUsed = today;
     localStorage.setItem(STATS_KEY, JSON.stringify(stats));
 
     streakDisplay.textContent = `🌿 Current streak: ${streak} day(s)`;
-    document.getElementById("daysUsed").textContent = `Days used: ${stats.daysUsed}`;
-    document.getElementById("totalTasks").textContent = `Total tasks completed: ${completedTasks.length}`;
-    document.getElementById("longestStreak").textContent = `Longest streak: ${stats.longestStreak}`;
+    daysUsedEl.textContent = `Days used: ${stats.daysUsed}`;
+    totalTasksEl.textContent = `Total tasks completed: ${completedTasks.length}`;
+    longestStreakEl.textContent = `Longest streak: ${stats.longestStreak}`;
   }
 
   CHECKBOXES.forEach(cb => cb.addEventListener("change", saveProgress));
@@ -137,9 +140,9 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.removeItem(STATS_KEY);
     CHECKBOXES.forEach(cb => cb.checked = false);
     streakDisplay.textContent = "🌿 Current streak: 0 day(s)";
-    document.getElementById("daysUsed").textContent = "Days used: 0";
-    document.getElementById("totalTasks").textContent = "Total tasks completed: 0";
-    document.getElementById("longestStreak").textContent = "Longest streak: 0";
+    daysUsedEl.textContent = "Days used: 0";
+    totalTasksEl.textContent = "Total tasks completed: 0";
+    longestStreakEl.textContent = "Longest streak: 0";
   });
 
   loadProgress();
