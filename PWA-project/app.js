@@ -1,15 +1,13 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const canvas = document.getElementById("canvas");
+  const canvas = document.getElementById("buddyCanvas");
   const ctx = canvas.getContext("2d");
 
-  // Load background image on canvas
   const background = new Image();
-  background.src = "images/background.png"; // Adjust path if needed
+  background.src = "images/background.png";
   background.onload = () => {
     ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
   };
 
-  // Load daily tip
   const tipElement = document.getElementById("dailyTip");
   fetch("data/tips.json")
     .then(res => res.json())
@@ -21,7 +19,6 @@ document.addEventListener("DOMContentLoaded", () => {
       tipElement.textContent = "🌱 Stay green and do your part today!";
     });
 
-  // Load bonus fact
   const bonusFact = document.getElementById("bonusFact");
   fetch("data/facts.json")
     .then(res => res.json())
@@ -33,21 +30,17 @@ document.addEventListener("DOMContentLoaded", () => {
       bonusFact.textContent = "♻️ Sustainability starts with small actions!";
     });
 
-  // Dark mode toggle
   const darkModeBtn = document.getElementById("darkModeBtn");
   const savedTheme = localStorage.getItem("theme");
-
   if (savedTheme === "dark") {
     document.body.classList.add("dark-mode");
   }
-
   darkModeBtn.addEventListener("click", () => {
     document.body.classList.toggle("dark-mode");
     const isDark = document.body.classList.contains("dark-mode");
     localStorage.setItem("theme", isDark ? "dark" : "light");
   });
 
-  // Task streak + stats
   const TASK_KEY = "sustainabilityProgress";
   const STATS_KEY = "ecoStats";
   const CHECKBOXES = document.querySelectorAll(".task");
@@ -58,10 +51,11 @@ document.addEventListener("DOMContentLoaded", () => {
   function loadProgress() {
     const today = getToday();
     const stored = JSON.parse(localStorage.getItem(TASK_KEY)) || {};
-    const stats = JSON.parse(localStorage.getItem(STATS_KEY)) || {
+    let stats = JSON.parse(localStorage.getItem(STATS_KEY)) || {
       daysUsed: 0,
       totalTasks: 0,
-      longestStreak: 0
+      longestStreak: 0,
+      lastUsed: ""
     };
 
     if (stored.lastCompletedDate === today && stored.tasksCompleted) {
@@ -81,12 +75,12 @@ document.addEventListener("DOMContentLoaded", () => {
       stats.longestStreak = stored.streak;
     }
 
+    localStorage.setItem(STATS_KEY, JSON.stringify(stats));
+
     document.getElementById("daysUsed").textContent = `Days used: ${stats.daysUsed}`;
     document.getElementById("totalTasks").textContent = `Total tasks completed: ${stored.tasksCompleted?.length || 0}`;
     document.getElementById("longestStreak").textContent = `Longest streak: ${stats.longestStreak}`;
     streakDisplay.textContent = `🌿 Current streak: ${stored.streak || 0} day(s)`;
-
-    localStorage.setItem(STATS_KEY, JSON.stringify(stats));
   }
 
   function saveProgress() {
@@ -96,10 +90,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const today = getToday();
     const stored = JSON.parse(localStorage.getItem(TASK_KEY)) || {};
-    const stats = JSON.parse(localStorage.getItem(STATS_KEY)) || {
+    let stats = JSON.parse(localStorage.getItem(STATS_KEY)) || {
       daysUsed: 0,
       totalTasks: 0,
-      longestStreak: 0
+      longestStreak: 0,
+      lastUsed: ""
     };
 
     let streak = stored.streak || 0;
@@ -150,7 +145,7 @@ document.addEventListener("DOMContentLoaded", () => {
   loadProgress();
 });
 
-// Register Service Worker
+// Register service worker
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
     navigator.serviceWorker.register("service-worker.js")
