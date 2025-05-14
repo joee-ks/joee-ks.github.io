@@ -3,8 +3,8 @@
   "short_name": "SustainBuddy",
   "start_url": "index.html",
   "display": "standalone",
-  "background_color": "#f5fff5",
-  "theme_color": "#6bc36b",
+  "background_color": "#ffffff",
+  "theme_color": "#a8e6a3",
   "orientation": "portrait",
   "icons": [
     {
