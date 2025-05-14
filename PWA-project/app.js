@@ -69,16 +69,10 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
 
-    if (stats.lastUsed !== today) {
-      stats.daysUsed += 1;
-      stats.lastUsed = today;
-    }
-
     if (stored.streak && stored.streak > (stats.longestStreak || 0)) {
       stats.longestStreak = stored.streak;
+      localStorage.setItem(STATS_KEY, JSON.stringify(stats));
     }
-
-    localStorage.setItem(STATS_KEY, JSON.stringify(stats));
 
     daysUsedEl.textContent = `Days used: ${stats.daysUsed}`;
     totalTasksEl.textContent = `Total tasks completed: ${stored.tasksCompleted?.length || 0}`;
@@ -118,13 +112,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
     localStorage.setItem(TASK_KEY, JSON.stringify(updatedProgress));
 
-    if (streak > (stats.longestStreak || 0)) {
-      stats.longestStreak = streak;
+    // ⬇️ Move "daysUsed" update here so it only increases when tasks are saved
+    if (stats.lastUsed !== today) {
+      stats.daysUsed += 1;
+      stats.lastUsed = today;
     }
 
     const newTasks = completedTasks.filter(t => !(stored.tasksCompleted || []).includes(t));
     stats.totalTasks += newTasks.length;
-    stats.lastUsed = today;
+
+    if (streak > (stats.longestStreak || 0)) {
+      stats.longestStreak = streak;
+    }
+
     localStorage.setItem(STATS_KEY, JSON.stringify(stats));
 
     streakDisplay.textContent = `🌿 Current streak: ${streak} day(s)`;
