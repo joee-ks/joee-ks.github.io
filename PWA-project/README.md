@@ -1,7 +1,8 @@
 # 🌿 Sustain-a-Buddy — PWA Project for CISC 3610
 
-**Sustain-a-Buddy** is a lightweight, installable Progressive Web App (PWA) that promotes environmental awareness through an interactive canvas scene and educational content. 
+**Sustain-a-Buddy** is a lightweight, installable Progressive Web App that promotes environmental awareness through an interactive canvas scene and educational content. 
 Built using modern web technologies, the app runs offline and is optimized for both mobile and desktop users.
+
 Here is a link to check out the webpage and then install it for offline use: https://joee-ks.github.io/PWA-project/index.html
 
 ---
